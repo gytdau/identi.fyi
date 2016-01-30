@@ -12,15 +12,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email'
     ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    function generateCode() {
+        $this->code = 'aaa';
+    }
+    function generateUrl() {
+        $this->url = str_replace(" ", "-", strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $this->name)));
+    }
 }

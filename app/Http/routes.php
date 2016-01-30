@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -10,6 +11,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+Route::get('/{name}/{code}', 'UserController@showProfile');
 
 Route::get('/', function () {
     return view('welcome');
