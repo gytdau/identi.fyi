@@ -16,7 +16,7 @@ class User extends Authenticatable
     ];
 
     function generateCode() {
-        $this->code = 'aaa';
+        $this->code = str_random(4);
     }
     function generateUrl() {
         $this->url = str_replace(" ", "-", strtolower(preg_replace("/[^A-Za-z0-9 ]/", '', $this->name)));
