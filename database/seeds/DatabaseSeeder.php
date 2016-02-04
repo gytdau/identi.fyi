@@ -28,6 +28,7 @@ class UserTableSeeder extends Seeder
             $user = new User;
             $user->name = $faker->name;
             $user->email = $faker->email;
+            $user->bio = $faker->paragraph;
             $user->generateUrl();
             $user->generateCode();
             $user->save();
