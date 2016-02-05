@@ -15,8 +15,12 @@
 Route::get('/{name}/{code}', 'UserController@showProfile');
 
 Route::get('/', function () {
+	
     return view('welcome');
+	
 });
+
+Route::post('/', "UserController@signup");
 
 /*
 |--------------------------------------------------------------------------
