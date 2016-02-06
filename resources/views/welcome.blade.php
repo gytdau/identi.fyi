@@ -5,7 +5,10 @@
         <div class="col-md-7">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h1 class="text-center">Juliet Capulet</h1>
-                <div class="bio"><div class="text-muted">About me</div>I love pottery and gardening.</div>
+                <div class="frontpage-card bio"><div class="text-muted">About me</div>I love pottery and gardening.</div>
+                <div class="frontpage-card email"><div class="text-muted">Email</div><a href="mailto: juliet@capulet.com">juliet@capulet.com</a></div>
+                <div class="frontpage-card twitter"><div class="text-muted">Twitter</div><a href="https://twitter.com/julietcapulet">@julietcapulet</a></div>
+                <div class="frontpage-card linkedin"><div class="text-muted">LinkedIn</div><a href="https://www.linkedin.com/in/julietcapulet">www.linkedin.com/in/julietcapulet</a></div>
             </div>
         </div>
         <div class="col-md-5">
