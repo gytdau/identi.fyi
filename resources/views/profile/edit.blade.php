@@ -16,16 +16,22 @@
             <h1 class="text-center">Editing Your Profile</h1>
             <h4 class="text-center">( Profile Of {{ $user->name }} )</h4>
 			<form>
-	<!-- Textarea Input Type -->
+	<!-- Text Input Type (Name) -->
+				<label>
+	        		Name
+	            </label><br>
+	            <i><input type="text" class="form-control" value="{{ $user->name }}" name="name"><br><br></i>
+	<!-- Textarea Input Type (Bio) -->
 	            <label>
 	        		Bio
 	            </label>
 	            <i><textarea name="bio" class="form-control">{{ $user->bio }}</textarea></i><br>
-	<!-- Text Input Type -->
+	<!-- Text Input Type (Email) -->
 	            <label>
 	        		Email
 	            </label><br>
-	            <i><input type="text" class="form-control" value="{{ $user->email }}"><br><br></i>
+	            <i><input type="text" class="form-control" value="{{ $user->email }}" name="email"><br><br></i>
+	<!-- Submit Input Type (Save Changes Button) -->
 	            <input type="submit" value="Save Changes" class="form-control">
 	        </form>
         </div>
