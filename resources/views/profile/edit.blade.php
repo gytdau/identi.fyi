@@ -20,7 +20,7 @@
 				<label>
 	        		Name
 	            </label><br>
-	            <i><input type="text" class="form-control" value="{{ $user->name }}" name="name"><br><br></i>
+	            <i><input type="text" class="form-control" value="{{ $user->name }}" name="name"><br></i>
 	<!-- Textarea Input Type (Bio) -->
 	            <label>
 	        		Bio
