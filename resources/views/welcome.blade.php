@@ -1,39 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('template')
 
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/indexstyle.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    </head>
-    <body>
-        <div id = "banner">
-			
-				<form class = "signupform" method = "post" action = "">
-			
-				<h1>You're virtual business card<br>Just type in your email</h1>
-				<input class = "custominputtext" type = "text" name = "email" placeholder="Email">
-				<br>
-				<input class = "custominputtext" type = "text" name = "name" placeholder="Name">
-				
-				<input class = "btn btn-danger" type = "submit" value = "Submit">
-				
-			</form>
-			
+@section('content')
+    <div class="row">
+        <div class="col-md-7">
+            <div class="panel panel-default shadow-2 profile-panel">
+                <h1 class="text-center">Juliet Capulet</h1>
+                <div class="bio"><div class="text-muted">About me</div>I love pottery and gardening.</div>
+            </div>
         </div>
-		
-		<div class = "contentcont">
-		
-		<h1>All Your Contact Details<br>In One Place</h1>
-		
-		</div>
-		
-    </body>
-</html>
+        <div class="col-md-5">
+        <h1>Your virtual business card</h1>
+        <h2>Get started in one click</h2>
+        <form class="signupform" method="post" action="">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Your email address">
+                        <span class="input-group-btn">
+                            <input class="btn btn-danger" type="submit" value="Sign up">
+                        </span>
+            </div>
+        </form>
+        </div>
+    </div>
+@endsection
