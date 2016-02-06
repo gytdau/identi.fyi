@@ -1,11 +1,18 @@
 @extends('template')
 
+@section('head')
+
+<link rel="stylesheet" href="/edit.css">
+
+@endsection
+
 @section('body-class')
     dark
 @endsection
+
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default shadow-2 profile-panel">
+        <div class="panel panel-default shadow-2 profile-panel add-padding">
             <h1 class="text-center">Editing Your Profile</h1>
             <h4 class="text-center">( Profile Of {{ $user->name }} )</h4>
 			<form>
