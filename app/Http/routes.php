@@ -13,6 +13,7 @@
 */
 
 Route::get('/{name}/{code}', 'UserController@showProfile');
+Route::get('/{name}/{code}/edit/{passcode}', 'UserController@edit');
 
 Route::get('/', function () {
 	

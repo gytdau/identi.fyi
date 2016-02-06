@@ -33,4 +33,11 @@ class UserTest extends TestCase
         $user->generateUrl();
         $this->assertEquals('dr-gytis-daujotas-iii-jr', $user->url);
     }
+
+    public function testPasscodeGeneration()
+    {
+        $user = new User;
+        $user->generatePasscode();
+        $this->assertEquals(10, strlen($user->passcode));
+    }
 }

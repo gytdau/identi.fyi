@@ -31,8 +31,9 @@ class UserTableSeeder extends Seeder
             $user->bio = $faker->paragraph;
             $user->generateUrl();
             $user->generateCode();
+            $user->generatePasscode();
             $user->save();
-            $this->command->info('Generated ' . $user->url . '/' . $user->code);
+            $this->command->info('Generated ' . $user->url . '/' . $user->code . ' (/edit/' . $user->passcode . ')');
         }
     }
 }
