@@ -29,13 +29,14 @@ class UserTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = $faker->email;
             $user->bio = $faker->paragraph;
+            $user->socialMedia = [1 => "fake.twitter.com"];
             $user->generateUrl();
             $user->generateCode();
             $user->generatePasscode();
             $user->save();
             $this->command->info('Generated #' . $i);
             $this->command->info(' -> http://localhost:8000/' . $user->url . '/' . $user->code);
-            $this->command->info(' -> http://localhost:8000/' . $user->url . '/' . $user->code . '/edit/' . $user->passcode . '');
+            $this->command->info(' -> http://localhost:8000/edit/' . $user->id . '/' . $user->passcode . '');
         }
     }
 }

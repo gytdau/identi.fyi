@@ -22,9 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('bio');
             $table->string('url');
             $table->string('code');
-			$table->string('facebook');
-			$table->string('twitter');
-			$table->string('linkedin');
+			$table->string('socialMedia');
             $table->string('passcode');
             $table->timestamps();
         });

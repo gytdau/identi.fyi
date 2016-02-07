@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\SocialLink;
 
 class UserController extends Controller
 {
@@ -16,7 +17,8 @@ class UserController extends Controller
     {
 		
 		$userFound = User::where("url", $name)->where("code", $code)->firstOrFail();
-        return view('profile.show')->with('user', $userFound);
+		$socialView = SocialLink::generateView($userFound->socialMedia);
+        return view('profile.show')->with('user', $userFound)->with('socialView', $socialView);
     }
 
     public function edit($id, $passcode)
@@ -25,8 +27,8 @@ class UserController extends Controller
         if($userFound->passcode != $passcode) {
             return view('errors.custom')->with('text', "This link has expired. Check your inbox for a new email, or try sending it again.");
         }
-        return view('profile.edit')->with('user', $userFound);
-        return view('profile.edit')->with('user', $userFound);
+		$socialForm = SocialLink::generateForm($userFound->socialMedia);
+        return view('profile.edit')->with('user', $userFound)->with('socialForm', $socialForm);
     }
 	
 	public function signup(Request $request)

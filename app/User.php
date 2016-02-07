@@ -15,6 +15,10 @@ class User extends Authenticatable
         'name', 'email'
     ];
 
+    protected $casts = [
+        'socialMedia' => 'array',
+    ];
+
     function generateCode()
     {
         $this->code = str_random(4);

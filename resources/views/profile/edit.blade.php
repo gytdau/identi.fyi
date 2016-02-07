@@ -52,35 +52,7 @@
             <div class="col-md-6">
                 <div class="panel panel-default shadow-2 profile-panel">
 
-                    <!-- Text Input Type (Twitter) -->
-                    <div class="page-card">
-                        <label>
-                            Twitter
-                        </label>
-                        <div class="input-group">
-                            <input name="twitter" type="text" class="form-control" value="{{$user->twitter}}"
-                                   placeholder="Your Twitter Link">
-                        </div>
-                    </div>
-                    <!-- Text Input Type (Facebook) -->
-                    <div class="page-card">
-
-                        <label>
-                            Facebook
-                        </label>
-                        <input name="facebook" type="text" class="form-control"
-                               value="{{$user->facebook}}" placeholder="Your Facebook Link">
-
-                    </div>
-
-                    <!-- Text Input Type (LinkedIn) -->
-                    <div class="page-card">
-                        <label>
-                            LinkedIn
-                        </label>
-                        <input name="linkedin" type="text" class="form-control"
-                               value="{{$user->linkedin}}" placeholder="Your LinkedIn Link">
-                    </div>
+                    {!! $socialForm !!}
                 </div>
             </div>
 
