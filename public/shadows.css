@@ -23,7 +23,7 @@
 	display:inline-block;
 	
 }
-.panel-float-right{
+.panel-float-right {
 	
 	float: right;
 	
@@ -34,4 +34,7 @@
 .page-card {
     padding: 15px;
     font-size: 20px;
+}
+.panel {
+    padding: 15px;
 }

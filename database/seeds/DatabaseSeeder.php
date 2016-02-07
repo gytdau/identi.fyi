@@ -33,7 +33,9 @@ class UserTableSeeder extends Seeder
             $user->generateCode();
             $user->generatePasscode();
             $user->save();
-            $this->command->info('Generated ' . $user->url . '/' . $user->code . ' (/edit/' . $user->passcode . ')');
+            $this->command->info('Generated #' . $i);
+            $this->command->info(' -> http://localhost:8000/' . $user->url . '/' . $user->code);
+            $this->command->info(' -> http://localhost:8000/' . $user->url . '/' . $user->code . '/edit/' . $user->passcode . '');
         }
     }
 }
