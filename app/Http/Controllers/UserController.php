@@ -11,21 +11,24 @@ use App\User;
 
 class UserController extends Controller
 {
+	
     public function showProfile($name, $code)
     {
 		
-        $userFound = User::where('url', $name)->where('code', $code)->firstOrFail();
+		$userFound = User::where("url", $name)->where("code", $code)->firstOrFail();
         return view('profile.show')->with('user', $userFound);
     }
 
-    public function edit($name, $code, $passcode)
+    public function edit($id, $passcode)
     {
-        $userFound = User::where('url', $name)->where('code', $code)->firstOrFail();
+        $userFound = User::where('id', $id)->firstOrFail();
         if($userFound->passcode != $passcode) {
             return view('errors.custom')->with('text', "This link has expired. Check your inbox for a new email, or try sending it again.");
         }
         return view('profile.edit')->with('user', $userFound);
+        return view('profile.edit')->with('user', $userFound);
     }
+	
 	public function signup(Request $request)
     {
 		
@@ -33,13 +36,17 @@ class UserController extends Controller
 		 
         $user = new User;
         $user->email = $email;
-        $user->generateUrl();
         $user->generateCode();
+		$user->generatePasscode();
         $user->save();
+		
+		return redirect()->action("UserController@edit", [$user->id, $user->passcode]);
 		
 	}
 	
-	public function updateinfo(Request $request, $url, $key){
+	public function updateinfo(Request $request, $id, $key){
+		
+		$user = User::where('id', $id)->firstOrFail();
 		
 		$name = $request->input('name');
 		$email = $request->input('email');
@@ -49,10 +56,17 @@ class UserController extends Controller
 		$facebook = $request->input('facebook');
 		$twitter = $request->input('twitter');
 		
-		User::where("url", $url)->where("code", $key)->update(['name'=>$name, 'email'=>$email,
-		'bio'=>$bio, 'facebook'=>$facebook, 'linkedin'=>$linkedin, 'twitter'=>$twitter, 'city'=>$city]);
+		$user->name=$name;
+		$user->email=$email;
+		$user->twitter=$twitter;
+		$user->facebook=$facebook;
+		$user->linkedin=$linkedin;
+		$user->bio=$bio;
+		$user->city=$city;
+		$user->generateURL();
+		$user->save();
 		
-		return redirect()->action("UserController@showProfile", [$url, $key]);
+		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);
 		
 	}
 	
