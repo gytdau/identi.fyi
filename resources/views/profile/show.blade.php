@@ -28,6 +28,10 @@
                 <div class="page-card"><div class="text-muted">Area</div>{{$user->city}}</div>
                 @endif
 
+                @if($user->website!="")
+                <div class="page-card"><div class="text-muted">Website</div>{{$user->website}}</div>
+                @endif
+
             </div>
         </div>
             <div class="col-md-6">
