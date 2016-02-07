@@ -41,6 +41,14 @@
                         <input name="job" type="text" class="form-control" placeholder="Your Job Title"
                                value="{{$user->job}}"></div>
 
+                    <!-- Text Input Type (Phone Number) -->
+                    <div class="page-card">
+                        <label>
+                            Job Title
+                        </label>
+                        <input name="phone" type="text" class="form-control" placeholder="Your Phone Number"
+                               value="{{$user->phone}}"></div>
+
                     <!-- Text Input Type (Area) -->
                     <div class="page-card">
                         <label>
