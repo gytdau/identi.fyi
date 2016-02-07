@@ -65,7 +65,9 @@ class SocialLink
 
         // Generate a viewItem for each link the user has
         foreach($links as $linkId => $linkContent) {
-            $result .= self::viewItem($linkId, $linkContent);
+            if (!empty($linkContent)) {
+                $result .= self::viewItem($linkId, $linkContent);
+            }
         }
 
         return $result;
