@@ -65,6 +65,9 @@ class UserController extends Controller
 		$user->job=$job;
 		$user->phone=$phone;
 		$user->website=$website;
+		
+		$user->generateUrl();
+		
 		$user->save();
 		
 		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);
