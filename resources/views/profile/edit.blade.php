@@ -45,18 +45,16 @@
 				<label>
 					Facebook
 				</label>
-				<i><div class="input-group">
-				<span class="input-group-addon">http://www.Facebook.com/</span>
-                <input name="facebook" type="text" class="form-control" value="{{$user->facebook}}" placeholder="You're Facebook URL">
-            </div><br></i>
+				<i>
+                <input name="facebook" type="text" class="form-control" value="http://www.facebook.com/{{$user->facebook}}" placeholder="You're Facebook URL">
+            	<br></i>
 	<!-- Text Input Type (LinkedIn) -->
 				<label>
 					LinkedIn
 				</label>
-				<i><div class="input-group">
-				<span class="input-group-addon">http://www.LinkedIn.com/In/</span>
-                <input name="linkedin" type="text" class="form-control" value="{{$user->linkedin}}" placeholder="You're LinkedIn URL">
-            </div><br></i>
+				<i>
+                <input name="linkedin" type="text" class="form-control" value="http://www.linkedin.com/in/{{$user->linkedin}}" placeholder="You're LinkedIn URL">
+            <br></i>
 	<!-- Text Input Type (City/Town) -->
 				<label>
 					City / Town
