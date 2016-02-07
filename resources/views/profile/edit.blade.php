@@ -13,57 +13,86 @@
 @endsection
 
 @section('content')
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default shadow-2 profile-panel add-padding">
-            <h1 class="text-center">Editing Your Profile</h1>
-            <h4 class="text-center">( Profile Of {{ $user->name }} )</h4>
-			<form action="" method="post">
-	<!-- Text Input Type (Name) -->
-				<label>
-	        		Name
-	            </label><br>
-	            <i><input type="text" class="form-control" value="{{ $user->name }}" name="name"><br></i>
-	<!-- Textarea Input Type (Bio) -->
-	            <label>
-	        		Bio
-	            </label>
-	            <i><textarea name="bio" class="form-control">{{ $user->bio }}</textarea></i><br>
-	<!-- Text Input Type (Email) -->
-	            <label>
-	        		Email
-	            </label><br>
-	            <i><input type="text" class="form-control" value="{{ $user->email }}" name="email"><br></i>
-	<!-- Text Input Type (Twitter) -->
-				<label>
-					Twitter
-				</label>
-				<i><div class="input-group">
-				<span class="input-group-addon">@</span>
-                <input name="twitter" type="text" class="form-control" value="{{$user->twitter}}" placeholder="You're Twitter Name">
-            </div><br></i>
-	<!-- Text Input Type (Facebook) -->
-				<label>
-					Facebook
-				</label>
-				<i>
-                <input name="facebook" type="text" class="form-control" value="http://www.facebook.com/{{$user->facebook}}" placeholder="You're Facebook URL">
-            	<br></i>
-	<!-- Text Input Type (LinkedIn) -->
-				<label>
-					LinkedIn
-				</label>
-				<i>
-                <input name="linkedin" type="text" class="form-control" value="http://www.linkedin.com/in/{{$user->linkedin}}" placeholder="You're LinkedIn URL">
-            <br></i>
-	<!-- Text Input Type (City/Town) -->
-				<label>
-					City / Town
-				</label>
-				<i>
-                <input name="city" type="text" class="form-control" placeholder="Your City / Town" value="{{$user->city}}"><br><br></i>
-	<!-- Submit Input Type (Save Changes Button) -->
-	            <input type="submit" value="Save Changes" class="form-control">
-	        </form>
+    <form action="" method="post">
+            <h1 class="text-center">Editing profile...</h1>
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="panel panel-default shadow-2 profile-panel">
+                    <!-- Text Input Type (Name) -->
+                    <div class="page-card">
+                        <label>
+                            Name
+                        </label>
+                        <input type="text" class="form-control" value="{{ $user->name }}" name="name"><br>
+                    </div>
+                    <!-- Textarea Input Type (Bio) -->
+                    <div class="page-card">
+                        <label>
+                            Bio
+                        </label>
+                        <i><textarea name="bio" class="form-control">{{ $user->bio }}</textarea></i><br></div>
+
+                    <!-- Text Input Type (Area) -->
+                        <div class="page-card">
+                            <label>
+                                Area
+                            </label>
+                            <i>
+                                <input name="city" type="text" class="form-control" placeholder="Your City / Town" value="{{$user->city}}"><br><br></i></div>
+
+                </div>
+                <div class="panel panel-default shadow-2 profile-panel">
+                    <div class="page-card">
+                    <input type="submit" value="Save Changes" class="form-control">
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default shadow-2 profile-panel">
+
+                        <h2 class="text-center">Social Media</h2>
+                        <!-- Text Input Type (Twitter) -->
+                        <div class="page-card">
+                        <label>
+                            Twitter
+                        </label>
+                        <i><div class="input-group">
+                                <span class="input-group-addon">@</span>
+                                <input name="twitter" type="text" class="form-control" value="{{$user->twitter}}" placeholder="You're Twitter Name">
+                            </div><br></i>
+                    </div>
+                        <!-- Text Input Type (Facebook) -->
+                        <div class="page-card">
+
+                        <label>
+                            Facebook
+                        </label>
+                        <i>
+                            <input name="facebook" type="text" class="form-control" value="http://www.facebook.com/{{$user->facebook}}" placeholder="You're Facebook URL">
+                            <br></i>
+                        </div>
+
+                        <!-- Text Input Type (LinkedIn) -->
+                        <div class="page-card">
+                            <label>
+                                LinkedIn
+                            </label>
+                            <i>
+                                <input name="linkedin" type="text" class="form-control" value="http://www.linkedin.com/in/{{$user->linkedin}}" placeholder="You're LinkedIn URL">
+                                <br></i>
+                        </div>
+
+                        <!-- Text Input Type (Email) -->
+                        <div class="page-card">
+                            <label>
+                                Email
+                            </label><br>
+                            <i><input type="text" class="form-control" value="{{ $user->email }}" name="email"><br></i>
+                        </div>
+                    </div>
+                </div>
+
         </div>
-    </div>
+        </form>
 @endsection
