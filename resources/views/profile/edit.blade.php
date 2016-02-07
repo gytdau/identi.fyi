@@ -50,7 +50,13 @@
 					LinkedIn
 				</label>
 				<i>
-                <input name="linkedin" type="text" class="form-control" value = "htto://linkedin.com/in/{{$user->linkedin}}" placeholder="URL To LinkedIn Account"><br><br></i>
+                <input name="linkedin" type="text" class="form-control" value = "https://linkedin.com/in/{{$user->linkedin}}" placeholder="URL To LinkedIn Account"><br><br></i>
+	<!-- Text Input Type (LinkedIn) -->
+				<label>
+					City / Town
+				</label>
+				<i>
+                <input name="area" type="text" class="form-control" placeholder="Your City / Town"><br><br></i>
 	<!-- Submit Input Type (Save Changes Button) -->
 	            <input type="submit" value="Save Changes" class="form-control">
 	        </form>

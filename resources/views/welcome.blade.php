@@ -20,6 +20,14 @@
                         <span class="input-group-btn">
                             <input class="btn btn-danger" type="submit" value="Sign up">
                         </span>
+            </div><br><br>
+            <div class="temporary-links">
+                <p>
+                    <h3>Temporary Links</h3>
+                    <h4>Makes it quicker to get to the first profile</h4><br>
+                    <a href="/dr-adriel-cruickshank/4NXe">/dr-adriel-cruickshank/4NXe</a><br><br>
+                    <a href="/dr-adriel-cruickshank/4NXe/edit/1e8D3oVlVopOFdLs3MnD">/dr-adriel-cruickshank/4NXe/edit/1e8D3oVlVopOFdLs3MnD</a>
+                </p>
             </div>
         </form>
         </div>
