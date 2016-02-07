@@ -7,7 +7,12 @@ class SocialLink
 {
     public static $conversion = [
         1 => ["name" => "Twitter"],
-        2 => ["name" => "Facebook"]
+        2 => ["name" => "Facebook"],
+        3 => ["name" => "YouTube"],
+        4 => ["name" => "LinkedIn"],
+        5 => ["name" => "Google Plus"],
+        6 => ["name" => "Pinterest"],
+        7 => ["name" => "Tumblr"]
     ];
 
     public static function formItem($type, $link){
