@@ -49,6 +49,7 @@
         <div class="col-md-12">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h2 class="slogan text-center">All Your Contact Information In One Place</h2>
+                <h4 class="small-slogan text-center">No More Messy Business Cards. Just One Link</h4>
             </div>
         </div>
     </div>

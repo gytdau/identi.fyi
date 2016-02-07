@@ -44,6 +44,10 @@
 }
 
 .slogan {
-	padding-bottom: 12%;
-	padding-top: 8%;
+	padding-top: 4%;
+	padding-bottom: 2%;
+}
+
+.small-slogan {
+	padding-bottom: 6%;
 }

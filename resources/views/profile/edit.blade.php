@@ -33,12 +33,19 @@
                         </label>
                         <textarea name="bio" class="form-control">{{ $user->bio }}</textarea></div>
 
+                    <!-- Text Input Type (Job Title) -->
+                    <div class="page-card">
+                        <label>
+                            Job Title
+                        </label>
+                        <input name="city" type="text" class="form-control" placeholder="Your Job Title"
+                               value="{{$user->job}}"></div>
+
                     <!-- Text Input Type (Area) -->
                     <div class="page-card">
                         <label>
                             Area
                         </label>
-
                         <input name="city" type="text" class="form-control" placeholder="Your City / Town"
                                value="{{$user->city}}"></div>
 
