@@ -69,7 +69,7 @@
                             Facebook
                         </label>
                         <input name="facebook" type="text" class="form-control"
-                               value="{{$user->facebook}}" placeholder="Facebook URL">
+                               value="{{$user->facebook}}" placeholder="https://facebook.com/">
 
                     </div>
 
@@ -79,7 +79,7 @@
                             LinkedIn
                         </label>
                         <input name="linkedin" type="text" class="form-control"
-                               value="{{$user->linkedin}}" placeholder="LinkedIn URL">
+                               value="{{$user->linkedin}}" placeholder="https://linkedin.com/in/">
                     </div>
                 </div>
             </div>
