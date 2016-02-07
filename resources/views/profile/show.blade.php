@@ -16,6 +16,10 @@
                 <h1 class="text-center">{{ $user->name }}</h1>
                 <div class="page-card"><div class="text-muted">About me</div>{{ $user->bio  }}</div>
 
+                @if($user->job!="")
+                <div class="page-card"><div class="text-muted">Job</div>{{$user->job}}</div>
+                @endif
+
                 @if($user->city!="")
                 <div class="page-card"><div class="text-muted">Area</div>{{$user->city}}</div>
                 @endif

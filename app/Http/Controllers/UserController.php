@@ -53,6 +53,7 @@ class UserController extends Controller
 		$name = $request->input('name');
 		$city = $request->input('city');
 		$bio = $request->input('bio');
+		$job = $request->input('job');
 
 		$user->socialMedia = $request->input('social');
 		

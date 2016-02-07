@@ -38,7 +38,7 @@
                         <label>
                             Job Title
                         </label>
-                        <input name="city" type="text" class="form-control" placeholder="Your Job Title"
+                        <input name="job" type="text" class="form-control" placeholder="Your Job Title"
                                value="{{$user->job}}"></div>
 
                     <!-- Text Input Type (Area) -->
