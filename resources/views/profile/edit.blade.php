@@ -82,14 +82,6 @@
                         <input name="linkedin" type="text" class="form-control"
                                value="http://www.linkedin.com/in/{{$user->linkedin}}" placeholder="LinkedIn URL">
                     </div>
-
-                    <!-- Text Input Type (Email) -->
-                    <div class="page-card">
-                        <label>
-                            Email
-                        </label>
-                        <input type="text" class="form-control" value="{{ $user->email }}" name="email">
-                    </div>
                 </div>
             </div>
 
