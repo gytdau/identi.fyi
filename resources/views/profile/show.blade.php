@@ -17,7 +17,11 @@
                 <div class="page-card"><div class="text-muted">About me</div>{{ $user->bio  }}</div>
 
                 @if($user->job!="")
-                <div class="page-card"><div class="text-muted">Job</div>{{$user->job}}</div>
+                <div class="page-card"><div class="text-muted">Job Title</div>{{$user->job}}</div>
+                @endif
+
+                @if($user->phone!="")
+                <div class="page-card"><div class="text-muted">Phone Number</div>{{$user->phone}}</div>
                 @endif
 
                 @if($user->city!="")

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('url');
             $table->string('code');
             $table->string('job');
+            $table->string('phone');
 			$table->string('socialMedia')->default("{}");
             $table->string('passcode');
             $table->timestamps();

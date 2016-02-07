@@ -10,10 +10,8 @@
 
 @section('content')
     <div class="row">
-        <div>
-            <h1 class="text-center">Identi.fyi</h1>
-        </div>
-        <div class="col-md-7">
+
+        <div class="col-md-7 hidden-sm hidden-xs" style="height: 30vh;">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h1 class="text-center">Juliet Capulet</h1>
                 <div class="page-card bio">
@@ -34,8 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="panel panel-default shadow-2 profile-panel">
+        <div class="col-md-5" style="margin-top: 100px;">
                 <h1>Your New Business Card</h1>
                 <form class="signupform" method="post" action="">
                     <div class="input-group signup-button">
@@ -45,26 +42,14 @@
                             </span>
                     </div>
                 </form>
-                <br>
-                <br>
-                <br>
-            </div>
         </div>
-        <div class="col-md-5">
-            <div class="panel panel-default shadow-2 profile-panel">
-                <h1>How It Works</h1>
-                <ol>
-                    <li>Sign Up</li>
-                    <li>Edit Your Information</li>
-                    <li>Share Your Information</li>
-                </ol>
-            </div>
+        <div class="col-md-12 hidden-sm hidden-xs" style="background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); height: 100px;">
+
         </div>
-        <div class="col-md-12">
-            <div class="panel panel-default shadow-2 profile-panel">
-                <h2 class="slogan text-center">All Your Contact Information In One Place</h2>
+        <div class="col-md-12" style="background-color: white;">
+                <hr class="hidden-lg hidden-md">
+                <h2 class="slogan text-center" style="padding-top: 20px;">All Your Contact Information In One Place</h2>
                 <h4 class="small-slogan text-center">No More Messy Business Cards. Just One Link</h4>
-            </div>
         </div>
     </div>
 @endsection
