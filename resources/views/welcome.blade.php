@@ -35,16 +35,30 @@
             </div>
         </div>
         <div class="col-md-5">
-            <h1>Your virtual business card</h1>
-            <h2>Get started in one click</h2>
-            <form class="signupform" method="post" action="">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="email" placeholder="Your email address">
-                        <span class="input-group-btn">
-                            <input class="btn btn-danger" type="submit" value="Sign up">
-                        </span>
-                </div>
-            </form>
+            <div class="panel panel-default shadow-2 profile-panel">
+                <h1>Your New Business Card</h1>
+                <form class="signupform" method="post" action="">
+                    <div class="input-group signup-button">
+                        <input type="text" class="form-control" name="email" placeholder="Sign Up With Your Email">
+                            <span class="input-group-btn">
+                                <input class="btn btn-danger" type="submit" value="Sign up">
+                            </span>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-default shadow-2 profile-panel">
+                <h1>How It Works</h1>
+                <ol>
+                    <li>Sign Up</li>
+                    <li>Edit Your Information</li>
+                    <li>Share Your Information</li>
+                </ol>
+            </div>
         </div>
         <div class="col-md-12">
             <div class="panel panel-default shadow-2 profile-panel">

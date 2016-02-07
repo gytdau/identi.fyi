@@ -53,12 +53,14 @@ class UserController extends Controller
 		$name = $request->input('name');
 		$city = $request->input('city');
 		$bio = $request->input('bio');
+		$job = $request->input('job');
 
 		$user->socialMedia = $request->input('social');
 		
 		$user->name=$name;
 		$user->bio=$bio;
 		$user->city=$city;
+		$user->job=$job;
 		$user->save();
 		
 		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);

@@ -24,21 +24,21 @@
                         <label>
                             Name
                         </label>
-                        <input type="text" class="form-control" value="{{ $user->name }}" name="name">
+                        <input type="text" class="form-control" value="{{ $user->name }}" name="name" placeholder="Your Name">
                     </div>
                     <!-- Textarea Input Type (Bio) -->
                     <div class="page-card">
                         <label>
                             Bio
                         </label>
-                        <textarea name="bio" class="form-control">{{ $user->bio }}</textarea></div>
+                        <textarea name="bio" class="form-control" placeholder="Tell Us A Bit About Yourself">{{ $user->bio }}</textarea></div>
 
                     <!-- Text Input Type (Job Title) -->
                     <div class="page-card">
                         <label>
                             Job Title
                         </label>
-                        <input name="city" type="text" class="form-control" placeholder="Your Job Title"
+                        <input name="job" type="text" class="form-control" placeholder="Your Job Title"
                                value="{{$user->job}}"></div>
 
                     <!-- Text Input Type (Area) -->
