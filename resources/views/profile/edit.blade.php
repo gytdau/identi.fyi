@@ -58,7 +58,6 @@
                             Twitter
                         </label>
                         <div class="input-group">
-                            <span class="input-group-addon">@</span>
                             <input name="twitter" type="text" class="form-control" value="{{$user->twitter}}"
                                    placeholder="Twitter URL">
                         </div>
@@ -70,7 +69,7 @@
                             Facebook
                         </label>
                         <input name="facebook" type="text" class="form-control"
-                               value="http://www.facebook.com/{{$user->facebook}}" placeholder="Facebook URL">
+                               value="{{$user->facebook}}" placeholder="Facebook URL">
 
                     </div>
 
@@ -80,7 +79,7 @@
                             LinkedIn
                         </label>
                         <input name="linkedin" type="text" class="form-control"
-                               value="http://www.linkedin.com/in/{{$user->linkedin}}" placeholder="LinkedIn URL">
+                               value="{{$user->linkedin}}" placeholder="LinkedIn URL">
                     </div>
                 </div>
             </div>
