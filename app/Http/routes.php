@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::post('/', "UserController@signup");
+Route::post('/{name}/{code}/edit/{passcode}', 'UserController@updateinfo');
 
 /*
 |--------------------------------------------------------------------------
