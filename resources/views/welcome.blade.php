@@ -1,5 +1,11 @@
 @extends('template')
 
+@section('head')
+	
+	<title>Identifyi - Your Virtual Business Card</title>
+	
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-7">

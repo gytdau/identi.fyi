@@ -4,6 +4,8 @@
 
 <link rel="stylesheet" href="/edit.css">
 
+<title>{{$user->name}} | Edit</title>
+
 @endsection
 
 @section('body-class')
@@ -43,20 +45,24 @@
 				<label>
 					Facebook
 				</label>
-				<i>
-                <input name="facebook" type="text" class="form-control" value = "https://facebook.com/{{$user->facebook}}" placeholder="URL To Facebook Account"><br></i>
+				<i><div class="input-group">
+				<span class="input-group-addon">http://www.Facebook.com/</span>
+                <input name="facebook" type="text" class="form-control" value="{{$user->facebook}}" placeholder="You're Facebook URL">
+            </div><br></i>
 	<!-- Text Input Type (LinkedIn) -->
 				<label>
 					LinkedIn
 				</label>
-				<i>
-                <input name="linkedin" type="text" class="form-control" value = "https://linkedin.com/in/{{$user->linkedin}}" placeholder="URL To LinkedIn Account"><br><br></i>
-	<!-- Text Input Type (LinkedIn) -->
+				<i><div class="input-group">
+				<span class="input-group-addon">http://www.LinkedIn.com/In/</span>
+                <input name="linkedin" type="text" class="form-control" value="{{$user->linkedin}}" placeholder="You're LinkedIn URL">
+            </div><br></i>
+	<!-- Text Input Type (City/Town) -->
 				<label>
 					City / Town
 				</label>
 				<i>
-                <input name="area" type="text" class="form-control" placeholder="Your City / Town"><br><br></i>
+                <input name="city" type="text" class="form-control" placeholder="Your City / Town" value="{{$user->city}}"><br><br></i>
 	<!-- Submit Input Type (Save Changes Button) -->
 	            <input type="submit" value="Save Changes" class="form-control">
 	        </form>

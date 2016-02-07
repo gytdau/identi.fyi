@@ -43,13 +43,14 @@ class UserController extends Controller
 		
 		$name = $request->input('name');
 		$email = $request->input('email');
+		$city = $request->input('city');
 		$bio = $request->input('bio');
 		$linkedin = $request->input('linkedin');
 		$facebook = $request->input('facebook');
 		$twitter = $request->input('twitter');
 		
 		User::where("url", $url)->where("code", $key)->update(['name'=>$name, 'email'=>$email,
-		'bio'=>$bio, 'facebook'=>$facebook, 'linkedin'=>$linkedin, 'twitter'=>$twitter]);
+		'bio'=>$bio, 'facebook'=>$facebook, 'linkedin'=>$linkedin, 'twitter'=>$twitter, 'city'=>$city]);
 		
 		return redirect()->action("UserController@showProfile", [$url, $key]);
 		
