@@ -16,6 +16,10 @@
 .profile-panel {
     margin-top: 40px;
 	word-wrap: break-word;
+	
+}
+.profile-panel-line {
+    
 	display:inline-block;
 	
 }
