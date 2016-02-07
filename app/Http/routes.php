@@ -13,16 +13,15 @@
 */
 
 Route::get('/{name}/{code}', 'UserController@showProfile');
-Route::get('/{name}/{code}/edit/{passcode}', 'UserController@edit');
+Route::get('/edit/{id}/{passcode}', 'UserController@edit');
 
 Route::get('/', function () {
 	
     return view('welcome');
 	
-});
-
+});Route::get('/startup/{code}', 'UserController@createurl');
 Route::post('/', "UserController@signup");
-Route::post('/{name}/{code}/edit/{passcode}', 'UserController@updateinfo');
+Route::post('/edit/{id}/{passcode}', 'UserController@updateinfo');
 
 /*
 |--------------------------------------------------------------------------
