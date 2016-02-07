@@ -30,11 +30,9 @@ class UserController extends Controller
     {
 		
         $email = $request->input('email');
-        $name = $request->input('name');
 		 
         $user = new User;
         $user->email = $email;
-        $user->name = $name;
         $user->generateUrl();
         $user->generateCode();
         $user->save();
