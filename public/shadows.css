@@ -15,6 +15,14 @@
 }
 .profile-panel {
     margin-top: 40px;
+	word-wrap: break-word;
+	display:inline-block;
+	
+}
+.panel-float-right{
+	
+	float: right;
+	
 }
 .dark {
     background-color: #eee;
