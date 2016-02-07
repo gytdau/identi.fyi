@@ -15,7 +15,7 @@
 @section('content')
     <form action="" method="post">
         <h1 class="text-center">Editing profile...</h1>
-
+        <h4 class="text-center">All Fields Left Blank Will Not Be Shown</h4>
         <div class="col-md-12">
             <div class="col-md-6">
                 <div class="panel panel-default shadow-2 profile-panel">
@@ -56,6 +56,14 @@
                         </label>
                         <input name="city" type="text" class="form-control" placeholder="Your City / Town"
                                value="{{$user->city}}"></div>
+
+                    <!-- Text Input Type (Website) -->
+                    <div class="page-card">
+                        <label>
+                            Website
+                        </label>
+                        <input name="website" type="text" class="form-control" placeholder="Your Website"
+                               value="{{$user->website}}"></div>
 
                 </div>
                 <div class="panel panel-default shadow-2 profile-panel">

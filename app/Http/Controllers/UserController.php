@@ -55,6 +55,7 @@ class UserController extends Controller
 		$bio = $request->input('bio');
 		$job = $request->input('job');
 		$phone = $request->input('phone');
+		$website = $request->input('website');
 
 		$user->socialMedia = $request->input('social');
 		
@@ -63,6 +64,7 @@ class UserController extends Controller
 		$user->city=$city;
 		$user->job=$job;
 		$user->phone=$phone;
+		$user->website=$website;
 		$user->save();
 		
 		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);
