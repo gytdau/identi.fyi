@@ -53,17 +53,12 @@ class UserController extends Controller
 		$name = $request->input('name');
 		$city = $request->input('city');
 		$bio = $request->input('bio');
-		$linkedin = $request->input('linkedin');
-		$facebook = $request->input('facebook');
-		$twitter = $request->input('twitter');
+
+		$user->socialMedia = $request->input('social');
 		
 		$user->name=$name;
-		$user->twitter=$twitter;
-		$user->facebook=$facebook;
-		$user->linkedin=$linkedin;
 		$user->bio=$bio;
 		$user->city=$city;
-		$user->generateURL();
 		$user->save();
 		
 		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);

@@ -6,8 +6,8 @@ namespace App;
 class SocialLink
 {
     public static $conversion = [
-        1 => ["name" => "Twitter", "form-name" => "twitter"],
-        2 => ["name" => "Facebook", "form-name" => "facebook"]
+        1 => ["name" => "Twitter"],
+        2 => ["name" => "Facebook"]
     ];
 
     public static function formItem($type, $link){
@@ -18,7 +18,7 @@ class SocialLink
                 <label>
                     " . $linkType["name"] . "
                 </label>
-                    <input name='" . $linkType["form-name"] . "' type='text' class='form-control' value='" . $link . "'
+                    <input name='social[" . $type . "]' type='text' class='form-control' value='" . $link . "'
                         placeholder='Your " . $linkType["name"] . " link (or leave it blank)'>
             </div>
             ";
