@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>Identifyi - Your Virtual Business Card</title>
+    <title>Identifyi - Your New Business Card</title>
 
     <link rel="stylesheet" href="/indexstyle.css">
 
