@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>Identifyi - Your Virtual Business Card</title>
+    <title>Identifyi - Your New Business Card</title>
 
     <link rel="stylesheet" href="/indexstyle.css">
 
@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="row">
-
+<h1 class="text-center">Identifyi</h1>
         <div class="col-md-7 hidden-sm hidden-xs" style="height: 30vh;">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h1 class="text-center">Juliet Capulet</h1>
