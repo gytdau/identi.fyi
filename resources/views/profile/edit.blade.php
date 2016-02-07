@@ -44,13 +44,13 @@
 					Facebook
 				</label>
 				<i>
-                <input name="facebook" type="text" class="form-control" value = "{{$user->facebook}}" placeholder="URL To Facebook Account"><br></i>
+                <input name="facebook" type="text" class="form-control" value = "https://facebook.com/{{$user->facebook}}" placeholder="URL To Facebook Account"><br></i>
 	<!-- Text Input Type (LinkedIn) -->
 				<label>
 					LinkedIn
 				</label>
 				<i>
-                <input name="linkedin" type="text" class="form-control" value = "{{$user->linkedin}}" placeholder="URL To LinkedIn Account"><br><br></i>
+                <input name="linkedin" type="text" class="form-control" value = "htto://linkedin.com/in/{{$user->linkedin}}" placeholder="URL To LinkedIn Account"><br><br></i>
 	<!-- Submit Input Type (Save Changes Button) -->
 	            <input type="submit" value="Save Changes" class="form-control">
 	        </form>
