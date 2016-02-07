@@ -10,11 +10,9 @@
 
 @section('content')
     <div class="row">
-        <center>
             <div>
-                <h1>Identi.fyi</h1>
-            </div>
-        </center>    
+                <h1 class="text-center">Identi.fyi</h1>
+            </div>   
         <div class="col-md-7">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h1 class="text-center">Juliet Capulet</h1>
