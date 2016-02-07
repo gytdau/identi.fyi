@@ -24,7 +24,7 @@ class SocialLink
                     " . $linkType["name"] . "
                 </label>
                     <input name='social[" . $type . "]' type='text' class='form-control' value='" . $link . "'
-                        placeholder='Your " . $linkType["name"] . " link (or leave it blank)'>
+                        placeholder='Your " . $linkType["name"] . " link'>
             </div>
             ";
     }
