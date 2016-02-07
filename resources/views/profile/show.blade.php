@@ -4,14 +4,22 @@
     dark
 @endsection
 @section('content')
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-13 col-md-offset-2">
         <div class="panel panel-default shadow-2 profile-panel">
             <h1 class="text-center">{{ $user->name }}</h1>
             <div class="page-card"><div class="text-muted">About me</div>{{ $user->bio  }}</div>
 			
 			<div class="page-card"><div class="text-muted">Email</div>{{$user->email}}</div>
 			
-			@if($user->twitter!="")
+			<hr>
+			
+        </div>
+		
+		<div class="panel panel-default shadow-2 profile-panel panel-float-right">
+		
+		<h2 class="text-center">Social Media</h2>
+		
+		@if($user->twitter!="")
 				<div class="page-card"><div class="text-muted">Twitter</div><a href = "http://www.Twitter.com/{{$user->twitter}}"><span>@</span>{{$user->twitter}}</a></div>
 			@endif
 			
@@ -22,7 +30,9 @@
 			@if($user->linkedin!="")
 				<div class="page-card"><div class="text-muted">LinkedIn</div><a href = "{{$user->linkedin}}">{{$user->linkedin}}</a></div>
 			@endif
-        </div>
+		<hr>
+	</div>
 		
     </div>
+	
 @endsection
