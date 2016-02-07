@@ -49,7 +49,6 @@ class UserController extends Controller
 		$user = User::where('id', $id)->firstOrFail();
 		
 		$name = $request->input('name');
-		$email = $request->input('email');
 		$city = $request->input('city');
 		$bio = $request->input('bio');
 		$linkedin = $request->input('linkedin');
@@ -57,7 +56,6 @@ class UserController extends Controller
 		$twitter = $request->input('twitter');
 		
 		$user->name=$name;
-		$user->email=$email;
 		$user->twitter=$twitter;
 		$user->facebook=$facebook;
 		$user->linkedin=$linkedin;
