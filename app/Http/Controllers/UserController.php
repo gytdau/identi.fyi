@@ -39,4 +39,20 @@ class UserController extends Controller
 		
 	}
 	
+	public function updateinfo(Request $request, $url, $key){
+		
+		$name = $request->input('name');
+		$email = $request->input('email');
+		$bio = $request->input('bio');
+		$linkedin = $request->input('linkedin');
+		$facebook = $request->input('facebook');
+		$twitter = $request->input('twitter');
+		
+		User::where("url", $url)->where("code", $key)->update(['name'=>$name, 'email'=>$email,
+		'bio'=>$bio, 'facebook'=>$facebook, 'linkedin'=>$linkedin, 'twitter'=>$twitter]);
+		
+		return redirect()->action("UserController@showProfile", [$url, $key]);
+		
+	}
+	
 }
