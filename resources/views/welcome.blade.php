@@ -3,11 +3,18 @@
 @section('head')
 	
 	<title>Identifyi - Your Virtual Business Card</title>
+
+    <link rel="stylesheet" href="/indexstyle.css">
 	
 @endsection
 
 @section('content')
     <div class="row">
+        <center>
+            <div>
+                <h1>Identi.fyi</h1>
+            </div>
+        </center>    
         <div class="col-md-7">
             <div class="panel panel-default shadow-2 profile-panel">
                 <h1 class="text-center">Juliet Capulet</h1>
@@ -36,6 +43,11 @@
                 </p>
             </div>
         </form>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default shadow-2 profile-panel">
+                <h2 class="slogan text-center">All Your Contact Information In One Place</h2>
+            </div>
         </div>
     </div>
 @endsection
