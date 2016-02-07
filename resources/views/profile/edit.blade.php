@@ -59,7 +59,7 @@
                         </label>
                         <div class="input-group">
                             <input name="twitter" type="text" class="form-control" value="{{$user->twitter}}"
-                                   placeholder="Twitter URL">
+                                   placeholder="Your Twitter Link">
                         </div>
                     </div>
                     <!-- Text Input Type (Facebook) -->
@@ -69,7 +69,7 @@
                             Facebook
                         </label>
                         <input name="facebook" type="text" class="form-control"
-                               value="{{$user->facebook}}" placeholder="https://facebook.com/">
+                               value="{{$user->facebook}}" placeholder="Your Facebook Link">
 
                     </div>
 
@@ -79,7 +79,7 @@
                             LinkedIn
                         </label>
                         <input name="linkedin" type="text" class="form-control"
-                               value="{{$user->linkedin}}" placeholder="https://linkedin.com/in/">
+                               value="{{$user->linkedin}}" placeholder="Your LinkedIn Link">
                     </div>
                 </div>
             </div>

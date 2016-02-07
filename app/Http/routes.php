@@ -19,7 +19,8 @@ Route::get('/', function () {
 	
     return view('welcome');
 	
-});Route::get('/startup/{code}', 'UserController@createurl');
+});
+
 Route::post('/', "UserController@signup");
 Route::post('/edit/{id}/{passcode}', 'UserController@updateinfo');
 
