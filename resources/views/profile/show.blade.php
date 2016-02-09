@@ -29,7 +29,7 @@
                 @endif
 
                 @if($user->website!="")
-                <div class="page-card"><div class="text-muted">Website</div>{{$user->website}}</div>
+                <div class="page-card"><div class="text-muted">Website</div><a href = "{{$user->website}}}">{{$user->website}}</a></div>
                 @endif
 
             </div>
@@ -38,7 +38,12 @@
 		<div class="panel panel-default shadow-2 profile-panel">
 		
 		<h2 class="text-center">Social Media</h2>
+		
+		<div class = "list">
+		
 			{!! $socialView !!}
+			
+		</div>
 
             <div class="page-card"><div class="text-muted">Email</div>{{$user->email}}</div>
 

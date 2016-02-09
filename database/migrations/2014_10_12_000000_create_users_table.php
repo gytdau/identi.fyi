@@ -19,12 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
 			$table->string('city');
 			$table->string('country');
+			$table->string('website');
             $table->string('bio');
             $table->string('url');
             $table->string('code');
             $table->string('job');
             $table->string('phone');
-			$table->string('socialMedia')->default("{}");
+			//$table->string('socialMedia')->default("{}");
             $table->string('passcode');
             $table->timestamps();
         });

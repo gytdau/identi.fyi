@@ -5,6 +5,43 @@
     <link rel="stylesheet" href="/edit.css">
 
     <title>{{$user->name}} | Edit</title>
+	
+@endsection
+
+@section('extra-js')
+
+/*For the automatic appearing of media input boxes*/
+
+$(function(){
+	nummedia = ($('.list').children().length)-1;
+	if(nummedia==-1){
+		addmedia();
+	}
+	
+	$("input[name='social["+nummedia+"]']").on("keydown", function(){
+		
+		addmedia();
+		
+	});
+	
+});
+
+function addmedia(){
+	
+	nummedia++;
+	
+	var element = "<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social["+nummedia+"]' placeholder='Enter Social Media URL'></div>";
+	$('.list').append(element);
+	
+	$("input[name='social["+nummedia+"]']").on("keydown", function(){
+		
+		addmedia();
+		
+	});
+	
+	$("input[name='social["+(nummedia-1)+"]']").unbind();
+	
+}
 
 @endsection
 
@@ -44,7 +81,7 @@
                     <!-- Text Input Type (Phone Number) -->
                     <div class="page-card">
                         <label>
-                            Job Title
+                            Phone
                         </label>
                         <input name="phone" type="text" class="form-control" placeholder="Your Phone Number"
                                value="{{$user->phone}}"></div>
@@ -75,7 +112,18 @@
             <div class="col-md-6">
                 <div class="panel panel-default shadow-2 profile-panel">
 
-                    {!! $socialForm !!}
+				<div class="page-card">
+				
+					<label>Social Media</label>
+					
+				</div>
+				
+					<div class = "list">
+						
+						{!! $socialForm !!}
+						
+					</div>
+					
                 </div>
             </div>
 

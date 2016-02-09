@@ -4,6 +4,7 @@
 	
         <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
         <link rel="stylesheet" href="/shadows.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		
 		@yield('head')
 
@@ -24,6 +25,13 @@
         <meta name="msapplication-TileColor" content="#179299">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#179299">
+		
+		<script>
+		
+			@yield('extra-js');
+			
+		</script>
+		
     </head>
     <body class="@yield('body-class')">
         <div class="container">

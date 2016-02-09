@@ -2,21 +2,15 @@
 
 namespace App;
 
+use App\social;
+use App\User;
 
 class SocialLink
 {
-    public static $conversion = [
-        1 => ["name" => "Twitter"],
-        2 => ["name" => "Facebook"],
-        3 => ["name" => "YouTube"],
-        4 => ["name" => "LinkedIn"],
-        5 => ["name" => "Google Plus"],
-        6 => ["name" => "Pinterest"],
-        7 => ["name" => "Tumblr"]
-    ];
-
+	
     public static function formItem($type, $link){
         $linkType = self::$conversion[$type];
+		
         return
             "
             <div class='page-card'>
@@ -43,33 +37,78 @@ class SocialLink
             ";
     }
 
-    public static function generateForm($links) {
-        $result = "";
-
-        // Generate a formItem for each link possible
-        foreach(self::$conversion as $linkId => $linkType) {
-            if(array_key_exists($linkId, $links)) {
-                // If the user has a link for this type already, show the input with the value already
-                $result .= self::formItem($linkId, $links[$linkId]);
-            } else {
-                // If the user doesn't, then let the input have a blank value
-                $result .= self::formItem($linkId, "");
-            }
-        }
-
-        return $result;
-    }
-
-    public static function generateView($links) {
-        $result = "";
-
-        // Generate a viewItem for each link the user has
-        foreach($links as $linkId => $linkContent) {
-            if (!empty($linkContent)) {
-                $result .= self::viewItem($linkId, $linkContent);
-            }
-        }
+    public static function generateForm($id) {
+		
+		$result="";
+		
+		$socials = social::where("id", $id)->get();
+		$count = 0;
+		foreach($socials as $social){
+			
+			$result.="<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL' value='".$social['link']."'></div>";
+			$count++;
+		}
+		
+		$result.="<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL'></div>";
 
         return $result;
     }
+
+	public static function savemedia($id, $media){
+		
+		social::where("id", $id)->delete();
+		
+		foreach($media as $m){
+			
+			if($m!=""){
+			
+			$soc = new social;
+			
+			$soc->id=$id;
+			$soc->title=self::parsetitle($m);
+			$soc->link=strtolower($m);
+			
+			$soc->save();
+			
+			}
+			
+		}
+		
+	}
+	
+    public static function generateView($url) {
+        $result = "";
+
+		$id = User::where("url", $url)->firstOrFail()['id'];
+		
+		$medias = social::where("id", $id)->get();
+		
+		foreach($medias as $media){
+			
+			$result.="<div class = 'page-card'><div class = 'text-muted'>".$media['title']."</div>";
+			$result.="<a href = '".$media['link']."'>".$media['link']."</a></div>";
+			
+		}
+		
+		return $result;
+        
+    }
+	
+	public static function parsetitle($info){
+		
+		$info = strtolower($info);
+		
+		/*  To assign the title as being the text between the first two full stops  */
+		$index = strpos($info, ".")+1;
+		$info = substr($info, $index, strlen($info));
+		$index = strpos($info, ".");
+		$info = substr($info, 0, $index);
+		
+		$title=$info;
+		$title = ucwords($title);
+		
+		return $title;
+		
+	}
+	
 }
