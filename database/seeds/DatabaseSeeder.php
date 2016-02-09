@@ -29,7 +29,6 @@ class UserTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = $faker->email;
             $user->bio = $faker->paragraph;
-            $user->socialMedia = [1 => "fake.twitter.com"];
             $user->generateUrl();
             $user->generateCode();
             $user->generatePasscode();
