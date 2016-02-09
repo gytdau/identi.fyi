@@ -120,11 +120,10 @@ function addmedia(){
 				</div>
 				
 					<div class = "list">
-						
 						@foreach($user->socials as $key => $link)
                             <div class="page-card">
-                                <input type='text' class='form-control' name='social[{{ $key }}]'
-                                       placeholder='Enter Social Media URL' value='{{ $link->link }}'>
+                                <input type='text' class='form-control' name='social[{{ $key }}]' placeholder='Enter Social Media Title' name="social_title"><br>
+                                <input type='text' class='form-control' name='social[{{ $key }}]' placeholder='Enter Social Media URL' value='{{ $link->link }}'><br>
                             </div>
                         @endforeach
 
