@@ -10,5 +10,11 @@ class Social extends Model
         return $this->belongsTo('App\User');
     }
 	
+	public function definetitle(){
+		
+		preg_match("/(http:\/\/)?(www\.)?(.*)/", $this->link, $matches);
+		$this->title=$matches[3];
+		
+	}
 	
 }
