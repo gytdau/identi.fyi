@@ -23,8 +23,8 @@ class SocialLink
 	
 	public static function getViewItem($media){
 		
-		return "<div class = 'page-card'><div class = 'text-muted'>".$media['title']."</div>
-		<a href = '".$media['link']."'>".$media['link']."</a></div>";
+		return "<div class = 'page-card'>
+		<a href = '".$media['link']."'>".$media['title']."</a></div>";
 		
 	}
 	
@@ -56,8 +56,8 @@ class SocialLink
 			
 			$soc = new Social;
 
-			$soc->title=self::parsetitle($m);
 			$soc->link=strtolower($m);
+			$soc->definetitle();
 			
 			User::find($id)->socials()->save($soc);
 			
