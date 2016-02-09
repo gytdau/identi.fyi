@@ -21,16 +21,18 @@ class Social extends Model
 	
 	public function verifyLink($link){
 		
-		$ContainsHTTP = strpos($link, "http://");
-		$ContainsWWW = strpos($link, "www.");
+		$ContainsHTTP = stripos($link, "http://");
+		$ContainsHTTPS = stripos($link, "https://");
 		
-		if(!$ContainsWWW){
+		$ContainsWWW = stripos($link, "www.");
+		
+		if($ContainsWWW === false){
 			
 			$link = "www.".$link;
 			
 		}
 		
-		if(!$ContainsHTTP){
+		if($ContainsHTTP === false && $ContainsHTTPS === false){
 			
 			$link = "http://".$link;
 			
