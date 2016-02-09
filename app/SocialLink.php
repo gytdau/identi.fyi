@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\social;
+use App\Social;
 use App\User;
 
 class SocialLink
@@ -32,7 +32,7 @@ class SocialLink
 		
 		$result="";
 		$count = 0;
-		$socials = social::where("id", $id)->get();
+		$socials = User::find($id)->socials;
 		
 		foreach($socials as $social){
 			
@@ -48,19 +48,18 @@ class SocialLink
 
 	public static function savemedia($id, $media){
 		
-		social::where("id", $id)->delete();
+		User::find($id)->socials()->delete();
 		
 		foreach($media as $m){
 			
 			if($m!=""){
 			
-			$soc = new social;
-			
-			$soc->id=$id;
+			$soc = new Social;
+
 			$soc->title=self::parsetitle($m);
 			$soc->link=strtolower($m);
 			
-			$soc->save();
+			User::find($id)->socials()->save($soc);
 			
 			}
 			
@@ -71,9 +70,9 @@ class SocialLink
     public static function generateView($url) {
         $result = "";
 
-		$id = User::where("url", $url)->firstOrFail()['id'];
+		$user = User::where("url", $url)->firstOrFail();
 		
-		$medias = social::where("id", $id)->get();
+		$medias = $user->socials;
 		
 		foreach($medias as $media){
 			

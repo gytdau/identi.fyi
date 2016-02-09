@@ -34,4 +34,8 @@ class User extends Authenticatable
         $this->passcode = str_random(20);
         // TODO: Check if str_random() is secure enough
     }
+
+    public function socials() {
+        return $this->hasMany('App\Social');
+    }
 }
