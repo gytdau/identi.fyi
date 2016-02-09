@@ -8,49 +8,41 @@ use App\User;
 class SocialLink
 {
 	
-    public static function formItem($type, $link){
-        $linkType = self::$conversion[$type];
+	public static function getFormItem($social, $count, $last=false){
+		if(!$last){
+			
+			return "<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL' value='".$social['link']."'></div>";
+			
+		}else{
+			
+			return "<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL'></div>";
+			
+		}
 		
-        return
-            "
-            <div class='page-card'>
-                <label>
-                    " . $linkType["name"] . "
-                </label>
-                    <input name='social[" . $type . "]' type='text' class='form-control' value='" . $link . "'
-                        placeholder='Your " . $linkType["name"] . " link'>
-            </div>
-            ";
-    }
-    public static function viewItem($type, $link) {
-        $linkType = self::$conversion[$type];
-        return
-            "
-            <div class='page-card'>
-                <div class='text-muted'>
-                    " . $linkType["name"] . "
-                </div>
-                <a href='" . $link . "'>
-                   " . $link . "
-                </a>
-            </div>
-            ";
-    }
-
+	}
+	
+	public static function getViewItem($media){
+		
+		return "<div class = 'page-card'><div class = 'text-muted'>".$media['title']."</div>
+		<a href = '".$media['link']."'>".$media['link']."</a></div>";
+		
+	}
+	
     public static function generateForm($id) {
 		
 		$result="";
-		
-		$socials = social::where("id", $id)->get();
 		$count = 0;
+		$socials = social::where("id", $id)->get();
+		
 		foreach($socials as $social){
 			
-			$result.="<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL' value='".$social['link']."'></div>";
+			$result.=self::getFormItem($social, $count);
 			$count++;
+			
 		}
 		
-		$result.="<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social[".$count."]' placeholder='Enter Social Media URL'></div>";
-
+		$result.=self::getFormItem("", $count, true);
+		
         return $result;
     }
 
@@ -85,8 +77,7 @@ class SocialLink
 		
 		foreach($medias as $media){
 			
-			$result.="<div class = 'page-card'><div class = 'text-muted'>".$media['title']."</div>";
-			$result.="<a href = '".$media['link']."'>".$media['link']."</a></div>";
+			$result.=self::getViewItem($media);
 			
 		}
 		
