@@ -23,7 +23,8 @@ $(function(){
 		addmedia();
 		
 	});
-	
+
+    addmedia();
 });
 
 function addmedia(){
@@ -52,7 +53,7 @@ function addmedia(){
 @section('content')
     <form action="" method="post">
         <h1 class="text-center">Editing profile...</h1>
-        <h4 class="text-center">All Fields Left Blank Will Not Be Shown</h4>
+        <h4 class="text-center">Blank items will not be shown</h4>
         <div class="col-md-12">
             <div class="col-md-6">
                 <div class="panel panel-default shadow-2 profile-panel">
@@ -120,7 +121,13 @@ function addmedia(){
 				
 					<div class = "list">
 						
-						{!! $socialForm !!}
+						@foreach($user->socials as $key => $link)
+                            <div class="page-card">
+                                <input type='text' class='form-control' name='social[{{ $key }}]'
+                                       placeholder='Enter Social Media URL' value='{{ $link->link }}'>
+                            </div>
+                        @endforeach
+
 						
 					</div>
 					

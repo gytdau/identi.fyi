@@ -8,9 +8,8 @@ use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\social;
+use App\Social;
 
-use App\SocialLink;
 
 class UserController extends Controller
 {
@@ -19,18 +18,18 @@ class UserController extends Controller
     {
 		
 		$userFound = User::where("url", $name)->where("code", $code)->firstOrFail();
-		$socialView = SocialLink::generateView($name);
-        return view('profile.show')->with('user', $userFound)->with('socialView', $socialView);
+        return view('profile.show')->with('user', $userFound);
     }
 
     public function edit($id, $passcode)
     {
-        $userFound = User::where('id', $id)->firstOrFail();
+        $userFound = User::find($id);
+
         if($userFound->passcode != $passcode) {
-            return view('errors.custom')->with('text', "This link has expired. Check your inbox for a new email, or try sending it again.");
+            return view('errors.custom')->with('text', $passcode . " " . $userFound->passcode );
         }
-		$socialForm = SocialLink::generateForm($id);
-        return view('profile.edit')->with('user', $userFound)->with('socialForm', $socialForm);
+
+        return view('profile.edit')->with('user', $userFound);
     }
 	
 	public function signup(Request $request)
@@ -50,31 +49,33 @@ class UserController extends Controller
 	
 	public function updateinfo(Request $request, $id, $key){
 		
-		$user = User::where('id', $id)->firstOrFail();
-		
-		$name = $request->input('name');
-		$city = $request->input('city');
-		$bio = $request->input('bio');
-		$job = $request->input('job');
-		$phone = $request->input('phone');
-		$website = $request->input('website');
+		$user = User::find($id);
 
-		$media = $request->input('social');
+		$links = $request->input('social');
+
+        $user->socials()->delete();
+
+		foreach($links as $link) {
+            if($link != "") {
+                $newLink = new Social;
+                $newLink->link = $link;
+                $newLink->definetitle();
+                $user->socials()->save($newLink);
+            }
+        }
 		
-		SocialLink::savemedia($id, $media);
-		
-		$user->name=$name;
-		$user->bio=$bio;
-		$user->city=$city;
-		$user->job=$job;
-		$user->phone=$phone;
-		$user->website=$website;
+		$user->name = $request->input('name');
+		$user->bio = $request->input('bio');
+		$user->city = $request->input('city');
+		$user->job = $request->input('job');
+		$user->phone = $request->input('phone');
+		$user->website = $request->input('website');;
 		
 		$user->generateUrl();
 		
 		$user->save();
+
 		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);
-		
 	}
 	
 }
