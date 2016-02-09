@@ -20,7 +20,7 @@
                 </div>
                 <div class="page-card email">
                     <div class="text-muted">Email</div>
-                    <a href="mailto: juliet@capulet.com">juliet@capulet.com</a>
+                    <a href="">juliet@capulet.com</a>
                 </div>
                 <div class="page-card twitter">
                     <div class="text-muted">Twitter</div>
@@ -36,7 +36,7 @@
                 <h1>Your New Business Card</h1>
                 <form class="signupform" method="post" action="">
                     <div class="input-group signup-button">
-                        <input type="text" class="form-control" name="email" placeholder="Sign Up With Your Email">
+                        <input type="text" class="form-control" name="email" placeholder="Sign Up With Just Your Email Address">
                             <span class="input-group-btn">
                                 <input class="btn btn-danger" type="submit" value="Sign up">
                             </span>

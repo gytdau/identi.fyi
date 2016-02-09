@@ -47,6 +47,7 @@
 
                     @foreach($user->socials as $link)
                         <div class="page-card">
+                        <div class="text-muted"><?php $title_array = explode(".", $link->title); echo ucfirst($title_array[0]); ?></div>
                             <a href="{{ $link->link }}">{{ $link->title }}</a>
                         </div>
                     @endforeach
