@@ -58,7 +58,7 @@ class UserController extends Controller
 		foreach($links as $link) {
             if($link != "") {
                 $newLink = new Social;
-                $newLink->link = $link;
+                $newLink->verifyLink($link);
                 $newLink->definetitle();
                 $user->socials()->save($newLink);
             }
