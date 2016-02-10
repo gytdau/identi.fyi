@@ -39,12 +39,12 @@ class UserController extends Controller
 
 		$user->email = $request->input("email");
 
-        Mail::send("emails.signup", [],
+        /*Mail::send("emails.signup", [],
             function ($m) use ($user){
                 $m->from('hello@example.com', 'Identifyi');
                 $m->to($user->email)->subject("Welcome to Identifyi");
             }
-        );
+        );*/
 
 		$user->generatePasscode();
 		$user->generateCode();

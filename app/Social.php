@@ -26,15 +26,23 @@ class Social extends Model
 		
 		$ContainsWWW = stripos($link, "www.");
 		
-		if($ContainsWWW === false){
-			
-			$link = "www.".$link;
-			
-		}
-		
 		if($ContainsHTTP === false && $ContainsHTTPS === false){
 			
 			$link = "http://".$link;
+			
+		}
+		
+		if($ContainsWWW === false){
+			
+			if($ContainsHTTPS !== false){
+				
+				$link = substr_replace($link, "www.", 8, 0);
+				
+			}else{
+				
+				$link = substr_replace($link, "www.", 7, 0);
+				
+			}
 			
 		}
 		
