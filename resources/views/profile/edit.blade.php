@@ -52,31 +52,35 @@ function addmedia(){
 
 @section('content')
     <form action="" method="post">
-        <h1 class="text-center">Editing profile...</h1>
-        <h4 class="text-center">Blank items will not be shown</h4>
+        <h1 class="text-center">You are editing your profile</h1>
+        <h4 class="text-center">Anything blank won't be shown</h4>
         <div class="col-md-12">
+            <div class="panel panel-default shadow-2 profile-panel">
+                <input type="submit" value="Save profile" class="btn btn-success">
+            </div>
             <div class="col-md-6">
                 <div class="panel panel-default shadow-2 profile-panel">
                     <!-- Text Input Type (Name) -->
                     <div class="page-card">
                         <label>
                             Name
+                            <span class="text-muted">(Required)</span>
                         </label>
-                        <input type="text" class="form-control" value="{{ $user->name }}" name="name" placeholder="Your Name">
+                        <input type="text" class="form-control" value="{{ $user->name }}" name="name" placeholder="Name, username, whichever you prefer">
                     </div>
                     <!-- Textarea Input Type (Bio) -->
                     <div class="page-card">
                         <label>
                             Bio
                         </label>
-                        <textarea name="bio" class="form-control" placeholder="Tell Us A Bit About Yourself">{{ $user->bio }}</textarea></div>
+                        <textarea name="bio" class="form-control" placeholder="Tell us a bit about yourself">{{ $user->bio }}</textarea></div>
 
                     <!-- Text Input Type (Job Title) -->
                     <div class="page-card">
                         <label>
                             Job Title
                         </label>
-                        <input name="job" type="text" class="form-control" placeholder="Your Job Title"
+                        <input name="job" type="text" class="form-control" placeholder="Your current job title"
                                value="{{$user->job}}"></div>
 
                     <!-- Text Input Type (Phone Number) -->
@@ -84,7 +88,7 @@ function addmedia(){
                         <label>
                             Phone
                         </label>
-                        <input name="phone" type="text" class="form-control" placeholder="Your Phone Number"
+                        <input name="phone" type="text" class="form-control" placeholder="Make sure this is a number you want to be contacted on"
                                value="{{$user->phone}}"></div>
 
                     <!-- Text Input Type (Area) -->
@@ -92,7 +96,7 @@ function addmedia(){
                         <label>
                             Area
                         </label>
-                        <input name="city" type="text" class="form-control" placeholder="Your City / Town"
+                        <input name="city" type="text" class="form-control" placeholder="Your general area: city, town, or village name"
                                value="{{$user->city}}"></div>
 
                     <!-- Text Input Type (Website) -->
@@ -100,14 +104,9 @@ function addmedia(){
                         <label>
                             Website
                         </label>
-                        <input name="website" type="text" class="form-control" placeholder="Your Website"
+                        <input name="website" type="text" class="form-control" placeholder="Your website, such as a blog or portfolio"
                                value="{{$user->website}}"></div>
 
-                </div>
-                <div class="panel panel-default shadow-2 profile-panel">
-                    <div class="page-card">
-                        <input type="submit" value="Save Changes" class="form-control">
-                    </div>
                 </div>
             </div>
             <div class="col-md-6">

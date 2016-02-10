@@ -13,7 +13,7 @@
 |
 */
 
-Route::get('/{name}/{code}', 'UserController@showProfile');
+Route::get('/{name}/{code}', 'UserController@show');
 Route::get('/edit/{id}/{passcode}', 'UserController@edit');
 
 Route::get('/', function () {
@@ -22,9 +22,8 @@ Route::get('/', function () {
 	
 });
 
-Route::post('/', "UserController@signup");
-Route::post('/edit/{id}/{passcode}', 'UserController@updateinfo');
-
+Route::post('/', "UserController@create");
+Route::post('/edit/{id}/{passcode}', 'UserController@store');
 /*
 |--------------------------------------------------------------------------
 | Application Routes

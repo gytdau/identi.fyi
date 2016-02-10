@@ -14,25 +14,25 @@ use App\Social;
 class UserController extends Controller
 {
 	
-    public function showProfile($name, $code)
+    public function show($name, $code)
     {
 		
-		$userFound = User::where("url", $name)->where("code", $code)->firstOrFail();
-        return view('profile.show')->with('user', $userFound);
+		$user = User::where("url", $name)->where("code", $code)->firstOrFail();
+        return view('profile.show')->with('user', $user);
     }
 
     public function edit($id, $passcode)
     {
-        $userFound = User::find($id);
+        $user = User::find($id);
 
-        if($userFound->passcode != $passcode) {
-            return view('errors.custom')->with('text', $passcode . " " . $userFound->passcode );
+        if($user->passcode != $passcode) {
+            return view('errors.custom')->with('text', "This link has expired.");
         }
 
-        return view('profile.edit')->with('user', $userFound);
+        return view('profile.edit')->with('user', $user);
     }
-	
-	public function signup(Request $request)
+
+	public function create(Request $request)
     {
         
 		$user = new User;
@@ -47,9 +47,13 @@ class UserController extends Controller
 		
 	}
 	
-	public function updateinfo(Request $request, $id, $key){
+	public function store(Request $request, $id, $passcode){
 		
 		$user = User::find($id);
+
+		if($user->passcode != $passcode) {
+			return view('errors.custom')->with('text', "This link has expired.");
+		}
 
 		$links = $request->input('social');
 
@@ -75,7 +79,7 @@ class UserController extends Controller
 		
 		$user->save();
 
-		return redirect()->action("UserController@showProfile", [$user->url, $user->code]);
+		return redirect()->action("UserController@show", [$user->url, $user->code]);
 	}
 	
 }

@@ -24,19 +24,19 @@
                 </div>
                 <div class="page-card twitter">
                     <div class="text-muted">Twitter</div>
-                    <a href="https://twitter.com/julietcapulet">@julietcapulet</a>
+                    <a href="#">@julietcapulet</a>
                 </div>
                 <div class="page-card linkedin">
                     <div class="text-muted">LinkedIn</div>
-                    <a href="https://www.linkedin.com/in/julietcapulet">www.linkedin.com/in/julietcapulet</a>
+                    <a href="#">www.linkedin.com/in/julietcapulet</a>
                 </div>
             </div>
         </div>
         <div class="col-md-5" style="margin-top: 100px;">
-                <h1>Your New Business Card</h1>
+                <h1>Your virtual business card</h1>
                 <form class="signupform" method="post" action="">
                     <div class="input-group signup-button">
-                        <input type="text" class="form-control" name="email" placeholder="Sign Up With Just Your Email Address">
+                        <input type="text" class="form-control" name="email" placeholder="Email">
                             <span class="input-group-btn">
                                 <input class="btn btn-danger" type="submit" value="Sign up">
                             </span>
@@ -48,8 +48,8 @@
         </div>
         <div class="col-md-12" style="background-color: white;">
                 <hr class="hidden-lg hidden-md">
-                <h2 class="slogan text-center" style="padding-top: 20px;">All Your Contact Information In One Place</h2>
-                <h4 class="small-slogan text-center">No More Messy Business Cards. Just One Link</h4>
+                <h2 class="slogan text-center" style="padding-top: 20px;">All your contact information in one place</h2>
+                <h4 class="small-slogan text-center">You only need one link</h4>
         </div>
     </div>
 @endsection
