@@ -38,3 +38,22 @@
 .panel {
     padding: 15px;
 }
+
+.profile-picture{
+	
+	width: 100px;
+	height: 100px;
+	
+}
+
+.header-group{
+	
+	overflow: auto;
+	
+}
+
+.profile-img-card{
+	
+	float: left
+	
+}

@@ -10,10 +10,26 @@
     dark
 @endsection
 @section('content')
+
     <div class="col-md-12">
         <div class="col-md-6">
             <div class="panel panel-default shadow-2 profile-panel">
-                <h1 class="text-center">{{ $user->name }}</h1>
+			<div class = "header-group">
+			
+                <h1 class="text-center" style = "display: inline-block">{{ $user->name }}</h1>
+				
+				@if($user->img!="")
+				
+				<div class="page-card profile-img-card">
+				
+					<img class = "thumbnail profile-picture" src="{{URL::to("/")}}/ProfileImages/{{$user->img}}">
+				
+				</div>
+				
+				@endif
+				
+				</div>
+				
                 <div class="page-card">
                     <div class="text-muted">About me</div>{{ $user->bio  }}</div>
 

@@ -25,6 +25,13 @@ $(function(){
 	});
 
     addmedia();
+	
+	$('#displayableButton').on('click', function(){
+		
+		$('#uploadImageButton').click();
+		
+	});
+	
 });
 
 function addmedia(){
@@ -51,7 +58,7 @@ function addmedia(){
 @endsection
 
 @section('content')
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <h1 class="text-center">You are editing your profile</h1>
         <h4 class="text-center">Anything blank won't be shown</h4>
         <div class="col-md-12">
@@ -68,6 +75,18 @@ function addmedia(){
                         </label>
                         <input type="text" class="form-control" value="{{ $user->name }}" name="name" placeholder="Name, username, whichever you prefer">
                     </div>
+					
+					<div class="page-card">
+						<!-- File Input Type (Profile Picture) -->
+						<label>Displayable Picture</label>
+						
+						<!-- In order to add CSS, must use two inputs -->
+						
+						<input type="file" id = "uploadImageButton" name="profileImage" style = "visibility:hidden">
+						<input type="button" id="displayableButton" value="Upload Profile Picture" class = "btn btn-success">
+					
+					</div>
+					
                     <!-- Textarea Input Type (Bio) -->
                     <div class="page-card">
                         <label>
@@ -130,6 +149,7 @@ function addmedia(){
 					</div>
 					
                 </div>
+				
             </div>
 
         </div>

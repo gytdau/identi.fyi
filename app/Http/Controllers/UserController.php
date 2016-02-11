@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use Illuminate\Support\Facades\Input as Input;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Social;
+
 use Mail;
 
 class UserController extends Controller
@@ -39,12 +42,12 @@ class UserController extends Controller
 
 		$user->email = $request->input("email");
 
-        /*Mail::send("emails.signup", [],
+        Mail::send("emails.signup", [],
             function ($m) use ($user){
                 $m->from('hello@example.com', 'Identifyi');
                 $m->to($user->email)->subject("Welcome to Identifyi");
             }
-        );*/
+        );
 
 		$user->generatePasscode();
 		$user->generateCode();
@@ -85,8 +88,25 @@ class UserController extends Controller
 
 		$user->generateUrl();
 
+		if($request->hasFile('profileImage')){
+			
+			$file = $request->file('profileImage');
+			
+			$pastFileName = $user->img;
+			$fileName = str_random(4).".".$file->getClientOriginalExtension();
+			if($pastFileName!=""){
+				
+				unlink("ProfileImages/".$pastFileName);
+				
+			}
+			$file->move("ProfileImages", $fileName);
+			
+			$user->img=$fileName;
+			
+		}
+		
 		$user->save();
-
+		
 		return redirect()->action("UserController@show", [$user->url, $user->code]);
 	}
 
