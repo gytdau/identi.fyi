@@ -32,6 +32,13 @@
 				
                 <div class="page-card">
                     <div class="text-muted">About me</div>{{ $user->bio  }}</div>
+					
+				@if($user->experience!="")
+					
+					<div class="page-card">
+					<div class="text-muted">Experience</div>{{$user->experience}}</div>
+				
+				@endif
 
                 @if($user->job!="")
                     <div class="page-card">

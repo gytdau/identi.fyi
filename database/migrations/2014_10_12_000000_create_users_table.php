@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
 			$table->string('country');
 			$table->string('website');
             $table->string('bio');
+			$table->string('experience');
             $table->string('url');
             $table->string('code');
             $table->string('job');

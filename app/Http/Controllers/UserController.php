@@ -85,15 +85,21 @@ class UserController extends Controller
 		$user->job = $request->input('job');
 		$user->phone = $request->input('phone');
 		$user->website = $request->input('website');;
-
+		$user->experience = $request->input('experience');
+		
 		$user->generateUrl();
 
+		// Beginning (Profile) Image Work -->
+		
+		
 		if($request->hasFile('profileImage')){
 			
 			$file = $request->file('profileImage');
 			
-			$files = glob("ProfileImages/".$user->code.".*");
+			// Delete all present files by this user
 			
+			$files = glob("ProfileImages/".$user->code.".*");
+				
 			foreach ($files as $File) {
 				
 				unlink($File);
