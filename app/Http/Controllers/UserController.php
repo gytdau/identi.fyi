@@ -92,13 +92,15 @@ class UserController extends Controller
 			
 			$file = $request->file('profileImage');
 			
-			$pastFileName = $user->img;
-			$fileName = str_random(4).".".$file->getClientOriginalExtension();
-			if($pastFileName!=""){
+			$files = glob("ProfileImages/".$user->code.".*");
+			
+			foreach ($files as $File) {
 				
-				unlink("ProfileImages/".$pastFileName);
-				
+				unlink($File);
+			
 			}
+			
+			$fileName = $user->code.".".$file->getClientOriginalExtension();
 			$file->move("ProfileImages", $fileName);
 			
 			$user->img=$fileName;
