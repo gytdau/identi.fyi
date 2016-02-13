@@ -10,15 +10,6 @@ class Social extends Model
         return $this->belongsTo('App\User');
     }
 	
-	public function definetitle(){
-		
-		preg_match("/(https:\/\/|http:\/\/)?(www\.)?(.*)/", $this->link, $matches);
-		$this->title=$matches[3];
-		
-		return $this->title;
-		
-	}
-	
 	public function verifyLink($link){
 		
 		$ContainsHTTP = stripos($link, "http://");

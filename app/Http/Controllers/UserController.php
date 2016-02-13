@@ -66,18 +66,23 @@ class UserController extends Controller
 			return view('errors.custom')->with('text', "This link has expired.");
 		}
 
+		$linksTitles = $request->input('social_title');
 		$links = $request->input('social');
-
+		
         $user->socials()->delete();
 
-		foreach($links as $link) {
-            if($link != "") {
-                $newLink = new Social;
-                $newLink->verifyLink($link);
-                $newLink->definetitle();
-                $user->socials()->save($newLink);
-            }
-        }
+		for($i=0;$i<sizeof($links);$i++){
+			
+			if($links[$i]!=""&&$linksTitles[$i]!=""){
+			
+				$newLink = new Social;
+				$newLink->verifyLink($links[$i]);
+				$newLink->title=$linksTitles[$i];
+				$user->socials()->save($newLink);
+			
+			}
+			
+		}
 
 		$user->name = $request->input('name');
 		$user->bio = $request->input('bio');

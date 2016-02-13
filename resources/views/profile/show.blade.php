@@ -68,13 +68,44 @@
                 <h2 class="text-center">Social Media</h2>
                 <div class="list">
 
-                    @foreach($user->socials as $link)
-                        <div class="page-card">
-                        <div class="text-muted"><?php $title_array = explode(".", $link->title); echo ucfirst($title_array[0]); ?></div>
-                            <a href="{{ $link->link }}">{{ $link->title }}</a>
-                        </div>
-                    @endforeach
-
+					<table class='table table-striped page-card table-card'>
+					
+						<thead>
+						
+							<tr>
+							
+								<th>Title</th>
+								<th>Link</th>
+							
+							</tr>
+						
+						</thead>
+					
+						<tbody>
+					
+						@foreach($user->socials as $link)
+					
+							<tr>
+								<td>
+								
+								<div class="text-muted">{{$link->title}}</div>
+								
+								</td>
+						
+								<td>
+									
+								<a href="{{ $link->link }}">{{ $link->link}}</a>
+									
+								</td>
+						
+							</tr>
+						
+						@endforeach
+						
+						</tbody>
+						
+					</table>
+					
                 </div>
 
             </div>

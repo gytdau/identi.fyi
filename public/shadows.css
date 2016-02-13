@@ -59,3 +59,15 @@
 	float: left
 	
 }
+
+.table-card{
+	
+	text-align:left;
+	
+}
+
+.table-card td, .table-card th{
+	
+	width: 100px;
+	
+}

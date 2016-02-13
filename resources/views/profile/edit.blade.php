@@ -38,7 +38,8 @@ function addmedia(){
 	
 	nummedia++;
 	
-	var element = "<div class = 'page-card'><input type = 'text' class = 'form-control' name = 'social["+nummedia+"]' placeholder='Enter Social Media URL'></div>";
+	var element = "<div class = 'page-card'><div class='input-group'><input name='social_title["+nummedia+"]' type='text' placeholder='Enter Social Media Title' class='form-control'><span class='input-group-addon'></span><input class='form-control' placeholder='Enter Social Media URL' name='social["+nummedia+"]'></div></div>";
+	
 	$('.list').append(element);
 	
 	$("input[name='social["+nummedia+"]']").on("keydown", function(){
@@ -147,8 +148,13 @@ function addmedia(){
 					<div class = "list">
 						@foreach($user->socials as $key => $link)
                             <div class="page-card">
-                                <input type='text' class='form-control' name='social[{{ $key }}]' placeholder='Enter Social Media Title' name="social_title"><br>
-                                <input type='text' class='form-control' name='social[{{ $key }}]' placeholder='Enter Social Media URL' value='{{ $link->link }}'><br>
+							
+								<div class="input-group">
+								<input type='text' class='form-control' name='social_title[{{$key}}]' placeholder='Enter Social Media Title' value='{{$link->title}}'><br>
+								<span class="input-group-addon"></span>
+                                <input type='text' class='form-control' name='social[{{ $key }}]' placeholder='Enter Social Media URL' value='{{ $link->link }}' placeholder='Enter Social Title'><br>
+
+								</div>
                             </div>
                         @endforeach
 
