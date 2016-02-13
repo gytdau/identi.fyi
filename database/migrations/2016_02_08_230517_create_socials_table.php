@@ -16,9 +16,7 @@ class CreateSocialsTable extends Migration
             $table->integer('user_id');
 			$table->string('title');
 			$table->string('link');
-			
-            $table->timestamp("updated_at");
-			$table->timestamp("created_at");
+            $table->nullableTimestamps();
         });
     }
 
