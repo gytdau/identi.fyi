@@ -13,6 +13,7 @@
 |
 */
 
+Route::get('/verify/{id}', array('as'=>'verifyAccount', 'uses'=>'UserController@verifyAccount'));
 Route::get('/{name}/{code}', 'UserController@show');
 Route::get('/edit/{id}/{passcode}', array('as'=>'editPage', 'uses'=>'UserController@edit'));
 

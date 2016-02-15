@@ -17,6 +17,16 @@ use Mail;
 class UserController extends Controller
 {
 	
+	public function verifyAccount($id){
+		
+		$user = User::find($id);
+		$user->activated=true;
+		$user->save();
+		
+		return redirect()->action('UserController@show', [$user->url, $user->code]);
+		
+	}
+	
 	public function RequestMail(Request $request, $name, $code){
 		
 		$user = User::where('url', $name)->where('code', $code)->firstOrFail();
@@ -42,6 +52,7 @@ class UserController extends Controller
     {
 
 		$user = User::where("url", $name)->where("code", $code)->firstOrFail();
+		
         return view('profile.show')->with('user', $user);
     }
 
@@ -65,20 +76,23 @@ class UserController extends Controller
 		$user = new User;
 
 		$user->email = $request->input("email");
-
-        Mail::send("emails.signup", [],
-            function ($m) use ($user){
-                $m->from('hello@example.com', 'Identifyi');
-                $m->to($user->email)->subject("Welcome to Identifyi");
-            }
-        );
 		
 		$user->active=true;
+		$user->activated=false;
 		$user->generatePasscode();
 		$user->generateCode();
 
 		$user->save();
 
+		Mail::send("emails.verifyAccount", ['user'=>$user],
+            function ($m) use ($user){
+				
+                $m->from('hello@example.com', 'Identifyi');
+                $m->to($user->email)->subject("Verify Account");
+				
+            }
+        );
+		
 		return redirect()->action("UserController@edit", [$user->id, $user->passcode]);
 
 	}
