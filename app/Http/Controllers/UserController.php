@@ -20,10 +20,27 @@ class UserController extends Controller
 	public function verifyAccount($id){
 		
 		$user = User::find($id);
-		$user->activated=true;
+		$user->activated = true;
+		$user->active = true;
+		
+		$user->updated_at = time();
+		
 		$user->save();
 		
-		return redirect()->action('UserController@show', [$user->url, $user->code]);
+		return redirect()->action('UserController@edit', [$user->id, $user->passcode]);
+		
+	}
+	
+	public function sendMail($view, $subject, $user){
+		
+		Mail::send($view, ['user'=>$user],
+            function ($m) use ($user, $subject){
+				
+                $m->from('hello@example.com', 'Identifyi');
+                $m->to($user->email)->subject($subject);
+				
+            }
+        );
 		
 	}
 	
@@ -33,16 +50,12 @@ class UserController extends Controller
 		
 		$user->generatePasscode();
 		$user->active=true;
+		
+		$user->updated_at = time();
+		
 		$user->save();
 		
-		Mail::send("emails.editRequest", ['user'=>$user],
-            function ($m) use ($user){
-				
-                $m->from('hello@example.com', 'Identifyi');
-                $m->to($user->email)->subject("Edit Request");
-				
-            }
-        );
+		$this->sendMail('emails.editRequest', 'Edit Request', $user);
 		
 		return redirect()->action('UserController@show', [$user->url, $user->code]);
 		
@@ -54,6 +67,7 @@ class UserController extends Controller
 		$user = User::where("url", $name)->where("code", $code)->firstOrFail();
 		
         return view('profile.show')->with('user', $user);
+		
     }
 
     public function edit($id, $passcode)
@@ -61,7 +75,27 @@ class UserController extends Controller
 		
         $user = User::find($id);
 		
-        if($user->passcode != $passcode || !$user->active) {
+		$currentTime = time();
+		$lastEdit = strtotime($user->updated_at);
+		
+		$expired = false;
+		
+		if($user->active){
+			
+			/*If Link Has Been Active For Move 30 Mins*/ 
+			
+			if($currentTime - $lastEdit > 1800){
+				
+				$expired = true;
+				$user->active = false;
+				
+				$user->save();
+				
+			}
+			
+		}
+		
+        if($expired || $user->passcode != $passcode || !$user->active) {
 			
             return view('errors.custom')->with('text', "This link has expired.");
 			
@@ -75,25 +109,28 @@ class UserController extends Controller
 
 		$user = new User;
 
-		$user->email = $request->input("email");
+		$email = $request->input('email');
 		
-		$user->active=true;
+		$presentUsers = User::where('email', $email)->first();
+		
+		if($presentUsers!=null){
+			
+			return view('message', ['message'=>'Sorry, That Email Has Already Been Registered. Are You Sure You Aren\'t Trying To Take SomeOne Else\'s Account?', 'title'=>'I\'m Sorry']);
+			
+		}
+		
+		$user->email = $email;
+		
+		$user->active=false;
 		$user->activated=false;
 		$user->generatePasscode();
 		$user->generateCode();
 
 		$user->save();
-
-		Mail::send("emails.verifyAccount", ['user'=>$user],
-            function ($m) use ($user){
-				
-                $m->from('hello@example.com', 'Identifyi');
-                $m->to($user->email)->subject("Verify Account");
-				
-            }
-        );
 		
-		return redirect()->action("UserController@edit", [$user->id, $user->passcode]);
+		$this->sendMail('emails.verifyAccount', 'Verify Account', $user);
+		
+		return view("message", ['message'=>'To Access Your Business Card, Please Verify Your Account Through The Email We Sent You :)', 'title'=>'Verify']);
 
 	}
 
