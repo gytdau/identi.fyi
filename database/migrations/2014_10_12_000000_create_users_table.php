@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('job');
             $table->string('phone');
             $table->string('passcode');
+			$table->boolean('active');
             $table->nullableTimestamps();
         });
     }

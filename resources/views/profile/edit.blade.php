@@ -14,9 +14,6 @@
 
 $(function(){
 	nummedia = ($('.list').children().length)-1;
-	if(nummedia==-1){
-		addmedia();
-	}
 	
 	$("input[name='social["+nummedia+"]']").on("keydown", function(){
 		
@@ -94,13 +91,6 @@ function addmedia(){
                             Bio
                         </label>
                         <textarea name="bio" class="form-control" placeholder="Tell us a bit about yourself">{{ $user->bio }}</textarea></div>
-						
-					<!-- Textarea Input Type (Bio) -->
-                    <div class="page-card">
-                        <label>
-                            Experience
-                        </label>
-                        <textarea name="experience" class="form-control" placeholder="Write about your key experience in your field of work">{{ $user->experience }}</textarea></div>
 					
                     <!-- Text Input Type (Job Title) -->
                     <div class="page-card">

@@ -32,13 +32,6 @@
 				
                 <div class="page-card">
                     <div class="text-muted">About me</div>{{ $user->bio  }}</div>
-					
-				@if($user->experience!="")
-					
-					<div class="page-card">
-					<div class="text-muted">Experience</div>{{$user->experience}}</div>
-				
-				@endif
 
                 @if($user->job!="")
                     <div class="page-card">
@@ -94,7 +87,7 @@
 						
 								<td>
 									
-								<a href="{{ $link->link }}">{{ $link->link}}</a>
+								<a href="{{ $link->link }}">{{ substr($link->link, strpos($link->link, "www.")+4)}}</a>
 									
 								</td>
 						
@@ -109,8 +102,27 @@
                 </div>
 
             </div>
+			
         </div>
 
     </div>
+	
+	<div class = 'col-md-12'>
+	
+		<div class = 'col-md-12'>
+		
+			<div class='panel panel-default shadow-2 profile-panel'>
+		
+				<form method="post" action="">
+				
+					<input type = 'submit' name='sendMail' value='Request Edit' class='btn btn-success'>
+				
+				</form>
+		
+			</div>
+		
+		</div>
+	
+	</div>
 
 @endsection

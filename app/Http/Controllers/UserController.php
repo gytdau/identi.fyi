@@ -16,7 +16,28 @@ use Mail;
 
 class UserController extends Controller
 {
-
+	
+	public function RequestMail(Request $request, $name, $code){
+		
+		$user = User::where('url', $name)->where('code', $code)->firstOrFail();
+		
+		$user->generatePasscode();
+		$user->active=true;
+		$user->save();
+		
+		Mail::send("emails.editRequest", ['user'=>$user],
+            function ($m) use ($user){
+				
+                $m->from('hello@example.com', 'Identifyi');
+                $m->to($user->email)->subject("Edit Request");
+				
+            }
+        );
+		
+		return redirect()->action('UserController@show', [$user->url, $user->code]);
+		
+	}
+	
     public function show($name, $code)
     {
 
@@ -26,10 +47,13 @@ class UserController extends Controller
 
     public function edit($id, $passcode)
     {
+		
         $user = User::find($id);
-
-        if($user->passcode != $passcode) {
+		
+        if($user->passcode != $passcode || !$user->active) {
+			
             return view('errors.custom')->with('text', "This link has expired.");
+			
         }
 
         return view('profile.edit')->with('user', $user);
@@ -48,7 +72,8 @@ class UserController extends Controller
                 $m->to($user->email)->subject("Welcome to Identifyi");
             }
         );
-
+		
+		$user->active=true;
 		$user->generatePasscode();
 		$user->generateCode();
 
@@ -69,20 +94,23 @@ class UserController extends Controller
 		$linksTitles = $request->input('social_title');
 		$links = $request->input('social');
 		
+		$linkComb = array_combine($linksTitles, $links);
+		
         $user->socials()->delete();
-
-		for($i=0;$i<sizeof($links);$i++){
+		
+		foreach($linkComb as $title => $link){
 			
-			if($links[$i]!=""&&$linksTitles[$i]!=""){
+			if($link!=""&&$title!=""){
 			
 				$newLink = new Social;
-				$newLink->verifyLink($links[$i]);
-				$newLink->title=$linksTitles[$i];
+				$newLink->verifyLink($link);
+				$newLink->title=$title;
 				$user->socials()->save($newLink);
 			
 			}
 			
 		}
+		
 
 		$user->name = $request->input('name');
 		$user->bio = $request->input('bio');
@@ -90,7 +118,6 @@ class UserController extends Controller
 		$user->job = $request->input('job');
 		$user->phone = $request->input('phone');
 		$user->website = $request->input('website');;
-		$user->experience = $request->input('experience');
 		
 		$user->generateUrl();
 
@@ -117,6 +144,8 @@ class UserController extends Controller
 			$user->img=$fileName;
 			
 		}
+		
+		$user->active = false;
 		
 		$user->save();
 		

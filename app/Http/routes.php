@@ -14,7 +14,7 @@
 */
 
 Route::get('/{name}/{code}', 'UserController@show');
-Route::get('/edit/{id}/{passcode}', 'UserController@edit');
+Route::get('/edit/{id}/{passcode}', array('as'=>'editPage', 'uses'=>'UserController@edit'));
 
 Route::get('/', function () {
 	
@@ -22,6 +22,7 @@ Route::get('/', function () {
 	
 });
 
+Route::post('/{name}/{code}', 'UserController@RequestMail');
 Route::post('/', "UserController@create");
 Route::post('/edit/{id}/{passcode}', 'UserController@store');
 /*
